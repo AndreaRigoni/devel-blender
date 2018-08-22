@@ -19,7 +19,7 @@
 ## ////////////////////////////////////////////////////////////////////////// //
 
 include $(top_srcdir)/conf/kscripts/build_common.mk
-include $(top_srcdir)/conf/kscripts/toolchain.mk
+include $(top_srcdir)/conf/kscripts/docker.mk
 
 
 ## ////////////////////////////////////////////////////////////////////////// ##
@@ -34,15 +34,13 @@ include $(top_srcdir)/conf/kscripts/toolchain.mk
 
 DL   ?= $(DOWNLOAD_DIR)
 TMP  ?= $(abs_top_builddir)
-
-${DL} ${TMP}:
-	@$(MKDIR_P) $@
+DIRECTORIES += $(DL) $(TMP)
 
 ## /////////////////////////////////////////////////////////////////////////////
 ## // DOCKER  //////////////////////////////////////////////////////////////////
 ## /////////////////////////////////////////////////////////////////////////////
 
-# docker build targets 
+# docker build targets
 @AX_DOCKER_BUILD_TARGETS@
 
 ## /////////////////////////////////////////////////////////////////////////////
@@ -58,7 +56,7 @@ reconfigure: ##@miscellaneous re-run configure with last passed arguments
 	echo ; \
 	cd '$(abs_top_builddir)' && \
 	$(abs_top_srcdir)/configure $(shell $(abs_top_builddir)/config.status --config);
-	
+
 
 
 
