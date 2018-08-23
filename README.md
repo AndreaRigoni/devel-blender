@@ -1,6 +1,5 @@
-# autoconf-bootstrap
-Base setup for autoconf distribution
-
+# devel-blender
+Base setup for bledner development using docker image
 
 This is a autoconf/automake minimal setup to start a new project. It uses Kconfig integration 
 provided by https://github.com/AndreaRigoni/autoconf-kconfig as a submodule in conf/kconfig
