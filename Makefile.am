@@ -41,3 +41,28 @@ config: ##@blender configure cmake build
 NODOCKERBUILD += init build run config
 init build run config:
 	@ $(MAKE) -C src $@
+
+
+
+
+## ////////////////////////////////////////////////////////////////////////////////
+## //  QWS  ///////////////////////////////////////////////////////////////////////
+## ////////////////////////////////////////////////////////////////////////////////
+
+## PERL SUBST ##
+__ax_pl_envsubst = $(PERL) -pe 's/([^\\]|^)\$$\{([a-zA-Z_][a-zA-Z_0-9]*)\}/$$1.$$ENV{$$2}/eg' < $1 > $2
+
+SUFFIXES = .qws .qws.template
+
+.qws.template.qws:
+	@ $(call __ax_pl_envsubst,$<,$@);
+
+export top_srcdir
+export top_builddir
+export abs_top_srcdir
+export abs_top_builddir
+
+QWS_FILES = $(top_builddir)/conf/ide/qtcreator/QtProject/qtcreator/devel-blender.qws
+CLEANFILES = $(QWS_FILES)
+qws: $(QWS_FILES)
+edit_DEPS = qws

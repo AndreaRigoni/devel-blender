@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorSession>
-<!-- Written by QtCreator 4.5.2, 2018-08-23T13:31:09. -->
+<!-- Written by QtCreator 4.5.2, 2018-08-23T14:14:01. -->
 <qtcreator>
  <data>
   <variable>CascadeSetActive</variable>
@@ -21,12 +21,12 @@
  <data>
   <variable>ProjectList</variable>
   <valuelist type="QVariantList">
-   <value type="QString">/home/andrea/devel/utils/devel-blender/devel-blender.creator</value>
+   <value type="QString">${abs_top_srcdir}/devel-blender.creator</value>
   </valuelist>
  </data>
  <data>
   <variable>StartupProject</variable>
-  <value type="QString">/home/andrea/devel/utils/devel-blender/devel-blender.creator</value>
+  <value type="QString">${abs_top_srcdir}/devel-blender.creator</value>
  </data>
  <data>
   <variable>value-ActiveMode</variable>
@@ -48,16 +48,12 @@
   <variable>value-ProjectTree.ExpandData</variable>
   <valuelist type="QVariantList">
    <valuelist type="QVariantList">
-    <value type="QString">/home/andrea/devel/utils/devel-blender</value>
+    <value type="QString">${abs_top_srcdir}</value>
     <value type="QString">devel-blender [master]</value>
    </valuelist>
    <valuelist type="QVariantList">
-    <value type="QString">/home/andrea/devel/utils/devel-blender/src/blender</value>
+    <value type="QString">${abs_top_srcdir}/src/blender</value>
     <value type="QString">blender</value>
-   </valuelist>
-   <valuelist type="QVariantList">
-    <value type="QString">/home/andrea/devel/utils/devel-blender/src</value>
-    <value type="QString">src</value>
    </valuelist>
   </valuelist>
  </data>
