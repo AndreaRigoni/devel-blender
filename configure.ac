@@ -143,6 +143,7 @@ AC_SUBST([EXT_MODULES])
 
 ## // GIT IGNORE // ##
 AX_GITIGNORE_ADD_PATH([${builddir}])
+AX_GITIGNORE_ADD_PATH([${builddir}/src/build*])
 AX_GITIGNORE_SUBST
 
 
