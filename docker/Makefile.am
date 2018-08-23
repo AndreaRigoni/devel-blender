@@ -7,6 +7,9 @@ DOCKERFILE = Dockerfile
 
 IMAGE_NAME    = devel-blender
 IMAGE_VERSION = 0.1
+IMAGE_VENDOR  = consorziorfx
+
+IMAGE = $(IMAGE_VENDOR)/$(IMAGE_NAME):$(IMAGE_VERSION)
 
 #.PHONY: .dockerignore
 .dockerignore:
@@ -17,8 +20,9 @@ IMAGE_VERSION = 0.1
 
 build: ##@docker build image
 build: $(DOCKERFILE)
-	@ docker build -t $(IMAGE_NAME):$(IMAGE_VERSION) -f $< .
+	@ docker build -t $(IMAGE) -f $< .
 
 push: ##@docker push image to dockerhub
 push: build
-	@ docker push rigoni/$(IAMGE_NAME):$(IMAGE_VERSION)
+	@ docker push $(IMAGE)
+

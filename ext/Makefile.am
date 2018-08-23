@@ -70,10 +70,6 @@ mdsplus_BRANCH = $(EXT_MDSPLUS_BRANCH)
 $(call _ext_bootstrap,mdsplus)
 $(call _ext_configure,mdsplus)
 
-blender: ##@ext download blender
-blender_URL ?= https://git.blender.org/blender.git
-blender_BRANCH = blender2.8
-EXT_MODULES += blender
 
 
 

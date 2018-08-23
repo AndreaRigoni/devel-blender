@@ -24,54 +24,7 @@
 # For a description of the syntax of this configuration file,
 # see Documentation/kbuild/kconfig-language.txt.
 #
-mainmenu "autoconf-bootstrap  Start new autoconf kconfig project"
-
-
-comment "Project Options (add here)"
-
-# //////////////////////////////////////////////////////////////////////////// #
-# //  EXAMPLES  ////////////////////////////////////////////////////////////// #
-# //////////////////////////////////////////////////////////////////////////// #
-
-menu EXAMPLES
-
-menu MDS_MODULES
-	config MDS_JAVA
-	bool "Enable java module"
-	default y
-
-	config MDS_LV
-	bool "Enable labview module"
-	default n
-
-	config MDS_NI
-	bool "Enable National Instruments module"
-	default n
-endmenu
-
-menu MODULES
-	config MOD1
-	 bool "Enable mod1 module"
-	config MOD2
-	 bool "Enable mod2 module"
-	config MOD3
-	 bool "Enable mod3 module"
-endmenu
-
-
-config EXAMPLE_BOOL_VAR
-	bool "Set a example bool variable"
-	---help---
-	      This is an example bool variable define within the kconfig
-	      autoconf addon.
-
-config EXAMPLE_STRING_VAR
-	string "get value for EXAMPLE_STRING_VAR"
-	---help---
-	      This is an example string variable define within the kconfig
-	      autoconf addon.
-
-endmenu
+mainmenu "devel-blender - Custom environment for GNU-linux blender development "
 
 comment "Build Options"
 
@@ -85,7 +38,7 @@ comment "Build Options"
 # //  TOOLCHAIN  ///////////////////////////////////////////////////////////// #
 # //////////////////////////////////////////////////////////////////////////// #
 
-  source conf/kscripts/toolchain.kconfig
+# source conf/kscripts/toolchain.kconfig
 
 # //////////////////////////////////////////////////////////////////////////// #
 # //  DOCKER  //////////////////////////////////////////////////////////////// #
@@ -124,17 +77,14 @@ menuconfig  ENABLE_EXTSRC
 
 if ENABLE_EXTSRC
 
-  # //  LIBJIT  //
-  source conf/kscripts/ext_libjit.kconfig
-
   # //  LLVM  //
-  source conf/kscripts/ext_llvm.kconfig
+  # source conf/kscripts/ext_llvm.kconfig
 
   # //  CCSTICKERS  //
   source conf/kscripts/ext_ccStickers.kconfig
 
   # //  NODEJS_NODE  //
-  source conf/kscripts/ext_nodejs_node.kconfig
+  # source conf/kscripts/ext_nodejs_node.kconfig
 
   # //  MDSPLUS  //
   source conf/kscripts/ext_mdsplus.kconfig
@@ -142,11 +92,12 @@ if ENABLE_EXTSRC
 endif # ENABLE_EXTSRC
 
 
+
 # //////////////////////////////////////////////////////////////////////////// #
 # //  YOCTO  ///////////////////////////////////////////////////////////////// #
 # //////////////////////////////////////////////////////////////////////////// #
-
-  source conf/kscripts/yocto.kconfig
+#
+#  source conf/kscripts/yocto.kconfig
 
 
 
