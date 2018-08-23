@@ -4238,6 +4238,7 @@ configure
 configure.ac
 devel-blender.config
 devel-blender.creator
+devel-blender.creator.user
 devel-blender.files
 devel-blender.includes
 doc/Makefile.am
