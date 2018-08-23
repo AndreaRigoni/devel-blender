@@ -8,12 +8,17 @@ provided by https://github.com/AndreaRigoni/autoconf-kconfig as a submodule in c
 In the following a easy setup procedure:
 
 <pre>
-git clone https://github.com/andrearigoni/autoconf-bootstrap.git
-cd autoconf-bootstrap
+git clone https://github.com/andrearigoni/devel-blender
+cd devel-blender
 ./bootstrap
-mkdir build
-cd build
 ../configure --enable-kconfig
-# enjoy
+# A gui appears to select build options
+# Enable Docker Build inside gui
+
+make help 
+
+make
+make edit
+
 </pre>
 
