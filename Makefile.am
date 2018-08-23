@@ -36,7 +36,8 @@ all: init build
 init: ##@blender initialize repository
 build: ##@blender build blender
 run: ##@blender run blender
+config: ##@blender configure cmake build
 
-NODOCKERBUILD += init build run
-init build run:
+NODOCKERBUILD += init build run config
+init build run config:
 	@ $(MAKE) -C src $@

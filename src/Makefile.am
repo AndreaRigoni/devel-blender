@@ -28,7 +28,8 @@ blender_BRANCH  = blender2.8
 build-deps: USER=root
 build-deps:
 	@ $(FIGLET) "build deps"; \
-	  . blender/build_files/build_environment/install_deps.sh --no-build --no-confirm
+	  . blender/build_files/build_environment/install_deps.sh \
+	    --no-confirm --build-oiio --skip-llvm
 
 
 init: ##@blender initialize repository
@@ -44,4 +45,6 @@ run:
 	@ $(FIGLET) "run blender"; \
 	  ./build_linux_debug/bin/blender
 
-
+config: ##@blender configure build
+config:
+	  @ $(MAKE) -C blender $@
