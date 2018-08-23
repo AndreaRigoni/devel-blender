@@ -13,7 +13,7 @@ fi
 
 aclocal -I ./conf/m4 -W ${AUTOCONF_WARNINGS}
 autoheader
-libtoolize -c
+# libtoolize -c
 automake --add-missing --copy -W ${AUTOCONF_WARNINGS}
 autoconf
 
