@@ -44,6 +44,8 @@ dnl AX_KCONFIG /////////////////////////////////////////////////////////////////
 dnl see: m4/ax_enable_kconfig.m4
 AS_VAR_SET([srcdir],[${srcdir}])
 AS_VAR_SET([builddir],[$(pwd)])
+AS_VAR_SET([DOCKER_IMAGE],[consorziorfx/devel-blender:0.1])
+
 AX_KCONFIG([conf/kconfig])
 
 dnl AX_TARGET_SELFHELP /////////////////////////////////////////////////////////
