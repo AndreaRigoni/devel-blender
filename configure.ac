@@ -24,14 +24,14 @@ dnl Process this file with autoconf to produce a configure script.
 
 dnl AUTOCONF ///////////////////////////////////////////////////////////////////
 AC_PREREQ([2.69])
-AC_INIT([autoconf-bootstrap], [0.1], [andrea.rgn@gmail.com])
+AC_INIT([devel-blender], [0.1], [andrea.rgn@gmail.com])
 AC_CONFIG_MACRO_DIRS([conf/m4])
 AC_CONFIG_AUX_DIR([conf])
 dnl AC_CONFIG_SRCDIR([...])
 AC_CANONICAL_TARGET
 
 dnl AUTOMAKE ///////////////////////////////////////////////////////////////////
-AM_INIT_AUTOMAKE([1.14 foreign subdir-objects])
+AM_INIT_AUTOMAKE([foreign subdir-objects])
 
 
 dnl update submodules at first ... (must be cleaned out)
