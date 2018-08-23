@@ -26,7 +26,7 @@ ACLOCAL_AMFLAGS = -I conf/m4
 SUBDIRS = ext src
 
 all: ##@all all target
-all: init build
+all: build
 
 
 ## ////////////////////////////////////////////////////////////////////////////////

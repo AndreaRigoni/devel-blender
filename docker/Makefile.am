@@ -16,6 +16,7 @@ IMAGE = $(IMAGE_VENDOR)/$(IMAGE_NAME):$(IMAGE_VERSION)
 	@ cat > $@ << EOF
 	*
 	!$(DOCKERFILE)
+	!install_blender_deps.sh
 	EOF
 
 build: ##@docker build image

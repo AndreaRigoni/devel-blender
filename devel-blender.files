@@ -4246,6 +4246,7 @@ doc/main_page.md
 doc/wiki/Makefile.am
 docker/Dockerfile
 docker/Makefile.am
+docker/install_blender_deps.sh
 ext/Makefile.am
 src/Makefile.am
 src/libjit_examples/Makefile.am

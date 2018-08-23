@@ -26,4 +26,5 @@ RUN apt-get -y update && apt-get -y install qtcreator
 
 # BLENDER NEEDS #
 RUN apt-get -y update && apt-get -y install cmake cmake-gui sudo figlet
-
+COPY install_blender_deps.sh /
+RUN /install_blender_deps.sh --no-confirm --build-oiio --skip-llvm
