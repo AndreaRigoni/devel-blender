@@ -26,9 +26,22 @@ ACLOCAL_AMFLAGS = -I conf/m4
 SUBDIRS = ext src
 
 all: ##@all all target
-all:
+all: init
 
 clean-local:
 
 MOSTLYCLEANFILES =
 
+
+## ////////////////////////////////////////////////////////////////////////////////
+## //  BLENDER  ///////////////////////////////////////////////////////////////////
+## ////////////////////////////////////////////////////////////////////////////////
+
+
+init: ##@blender initialize repository
+build: ##@blender build blender
+run: ##@blender run blender
+
+NODOCKERBUILD += init build run
+init build run:
+	@ $(MAKE) -C src $@

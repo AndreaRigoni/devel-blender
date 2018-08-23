@@ -43,3 +43,5 @@ run: ##@blender run blender
 run:
 	@ $(FIGLET) "run blender"; \
 	  ./build_linux_debug/bin/blender
+
+

@@ -52,5 +52,6 @@ reconfigure: ##@miscellaneous re-run configure with last passed arguments
 	$(abs_top_srcdir)/configure $(shell $(abs_top_builddir)/config.status --config);
 
 
+locale-gen: USER=root
 locale-gen:
 	@$@
