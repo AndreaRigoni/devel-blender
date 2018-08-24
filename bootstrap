@@ -92,8 +92,12 @@ install_DEB() {
 
   $SUDO apt-get -y update
   $SUDO apt-get -y install docker-ce
-
+  $SUDO usermod -aG docker $USER
 }
+
+install_ARCH() { :; }
+install_RPM() { :; }
+install_OTHER() { :; }
 
 
 # //////////////////////////////////////////////////////////////////////////////
