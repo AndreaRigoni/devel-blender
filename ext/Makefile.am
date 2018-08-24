@@ -30,10 +30,10 @@ ext-%: %/Makefile
 	@ $(MAKE) $(AM_MAKEFLAGS) -C $(subst ext-,,$@) $(TARGET)
 
 all: TARGET = all
-all: $(EXT_MODULES)
+all: $(addprefix ext-,$(EXT_MODULES))
 
 clean: TARGET = clean
-clean: ext-libjit
+clean: $(addprefix ext-,$(EXT_MODULES))
 
 
 list: ##@ext list defined ext modules
@@ -47,8 +47,6 @@ list:
 	$(info |) \
 	$(info |) \
 	$(info `-----------------------------------------------------------------) :
-
-
 
 # /////////////////////////////////////////////////////////////////////////// //
 # //  EXT MODULES  ////////////////////////////////////////////////////////// //
