@@ -71,7 +71,7 @@ install_DEB() {
               automake \
               libtool \
               locales \
-              libncurses-dev \
+              libncurses5-dev \
 			  apt-transport-https \
 		      ca-certificates \
 			  curl \
