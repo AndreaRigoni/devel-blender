@@ -67,6 +67,7 @@ ext-mdsplus: AM_MAKEFLAGS += -j1
 mdsplus: ##@ext mdsplus
 mdsplus_URL    = $(EXT_MDSPLUS_URL)
 mdsplus_BRANCH = $(EXT_MDSPLUS_BRANCH)
+mdsplus_CONFIGURE_ARGS = $(EXT_MDSPLUS_CONFIGURE_ARGS)
 $(call _ext_bootstrap,mdsplus)
 $(call _ext_configure,mdsplus)
 

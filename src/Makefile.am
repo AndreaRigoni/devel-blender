@@ -18,19 +18,17 @@ main_SOURCES = main.cpp
 ## //  BLENDER  ///////////////////////////////////////////////////////////////////
 ## ////////////////////////////////////////////////////////////////////////////////
 
-DOWNLOADS += blender
-
 blender: ##@ext download blender
-blender_URL    ?= https://git.blender.org/blender.git
-blender_BRANCH  = blender2.8
+DOWNLOADS += blender
+blender_URL    ?= $(BLENDER_BUILD_URL)
+blender_BRANCH ?= $(BLENDER_BUILD_BRANCH)
 
-
+build-deps: build_deps_CMD = blender/build_files/build_environment/install_deps.sh
+build-deps: build_deps_ARG = --no-confirm --skip-llvm
 build-deps: USER=root
 build-deps:
 	@ $(FIGLET) "build deps"; \
-	  . blender/build_files/build_environment/install_deps.sh \
-	    --no-confirm --build-oiio --skip-llvm
-
+	  [ -e $(build_deps_CMD) ]  && $(build_deps_CMD) $(build_deps_ARG)
 
 init: ##@blender initialize repository
 init: | blender build-deps
@@ -48,3 +46,4 @@ run:
 config: ##@blender configure build
 config:
 	  @ $(MAKE) -C blender $@
+

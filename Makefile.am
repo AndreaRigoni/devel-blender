@@ -32,22 +32,22 @@ all: build
 ## ////////////////////////////////////////////////////////////////////////////////
 ## //  BLENDER  ///////////////////////////////////////////////////////////////////
 ## ////////////////////////////////////////////////////////////////////////////////
-
-init: ##@blender initialize repository
-build: ##@blender build blender
-run: ##@blender run blender
-config: ##@blender configure cmake build
-
+init:   ##@blender initialize repository
+build:  ##@blender build blender
+run:    ##@blender run blender
+config: ##@blender configure cmake build (not working properely)
 NODOCKERBUILD += init build run config
 init build run config:
 	@ $(MAKE) -C src $@
 
 
-
-
 ## ////////////////////////////////////////////////////////////////////////////////
 ## //  QWS  ///////////////////////////////////////////////////////////////////////
 ## ////////////////////////////////////////////////////////////////////////////////
+#
+# QWS are the qtcreator work spaces files.. they needs to be compiled with the
+# absolute path so then a template is filled using the path discovered by
+# autotools to create the correct project paths in qtcreator for "edit" target
 
 ## PERL SUBST ##
 __ax_pl_envsubst = $(PERL) -pe 's/([^\\]|^)\$$\{([a-zA-Z_][a-zA-Z_0-9]*)\}/$$1.$$ENV{$$2}/eg' < $1 > $2
