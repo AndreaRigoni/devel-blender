@@ -69,6 +69,7 @@ install_DEB() {
               git \
               autoconf \
               automake \
+	      pkgconf \
               libtool \
               locales \
               libncurses5-dev \
