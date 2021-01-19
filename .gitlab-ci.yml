@@ -21,7 +21,7 @@ build1:
     - ./configure
     - make
   
-  stage: clean
+  stage: .post
   script:
     - make clean
     - make distclean
@@ -36,7 +36,7 @@ build2:
     - ../configure
     - make
 
-  stage: clean
+  stage: .post
   script:
     - echo $(pwd)
 
