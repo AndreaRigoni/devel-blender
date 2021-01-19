@@ -21,6 +21,17 @@ build1:
     - ./configure
     - make
 
+build2:
+  stage: build
+  script:
+    - echo "off directory building"
+    - ./bootstrap
+    - mkdir build
+    - cd build
+    - ../configure
+    - make
+
+
 # test1:
 #   stage: test
 #   script:
