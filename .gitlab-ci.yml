@@ -20,6 +20,24 @@ build1:
     - ./bootstrap
     - ./configure
     - make
+  
+    - make clean
+    - make distclean
+
+build2:
+  stage: build
+  script:
+    - echo "off directory building"
+    - ./bootstrap
+    - mkdir build
+    - cd build
+    - ../configure
+    - make
+
+    - make clean
+    - make distclean
+
+
 
 # test1:
 #   stage: test
