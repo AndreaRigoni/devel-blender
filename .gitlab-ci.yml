@@ -20,6 +20,10 @@ build1:
     - ./bootstrap
     - ./configure
     - make
+  
+clean1:
+    - make clean
+    - make distclean
 
 build2:
   stage: build
@@ -30,6 +34,10 @@ build2:
     - cd build
     - ../configure
     - make
+
+clean2:
+    - echo $(pwd)
+    - 
 
 
 # test1:
