@@ -80,7 +80,7 @@ AC_CHECK_PROGS([TAR],[gtar tar])
 AC_CHECK_PROGS([UNIQ],[uniq])
 AC_CHECK_PROGS([WC],[wc])
 
-AC_PROG_LEX
+AC_PROG_LEX([noyywrap])
 AC_PROG_YACC
 
 
