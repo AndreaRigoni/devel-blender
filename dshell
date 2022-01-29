@@ -1,0 +1,28 @@
+#!/bin/bash
+# //////////////////////////////////////////////////////////////////////////// #
+# //// DOCKER SHELL  ///////////////////////////////////////////////////////// #
+# //////////////////////////////////////////////////////////////////////////// #
+
+DOCKER_CONTAINER=build_e923f17c170e8b366dfbe1c3f8525d75
+DOCKER_IMAGE=consorziorfx/devel-blender:0.1
+
+abs_srcdir=/home/andrea/devel/blender/devel-blender
+abs_builddir=/home/andrea/devel/blender/devel-blender
+user_id=1000
+user_group=1000
+user_groups=
+user_home=/home/andrea
+
+export SHELL=/bin/bash
+export M_PATH=$PATH
+
+M_ENV="$(export -p | awk '!/( PATH=)|( XDG_)/ {printf("%s; ",$0)}')"
+xhost local:andrea 2>&1 > /dev/null
+>&2 echo "Docker: Entering container ${DOCKER_CONTAINER} ";
+quoted_args="$(printf " %q" "$@" | sed 's/\\,/,/g')"
+if [ -n "${MAKESHELL}" ]; then
+ ${MAKESHELL} ${quoted_args};
+else
+ [ -t 7 -o -t 0 ] && INT=-ti || INT=
+ docker exec ${INT} --user ${USER} ${DOCKER_CONTAINER} /bin/bash -l -c "save_path=\$PATH; $M_ENV export PATH=\$save_path; cd $(pwd); export MAKESHELL=/bin/bash; /bin/bash ${quoted_args}";
+fi

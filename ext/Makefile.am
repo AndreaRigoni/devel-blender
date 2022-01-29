@@ -25,6 +25,7 @@ $1/Makefile: $1/config.log
 )
 endef
 
+
 ext-: ##@ext enter ext module with $TARGET
 ext-%: %/Makefile
 	@ $(MAKE) $(AM_MAKEFLAGS) -C $(subst ext-,,$@) $(TARGET)
@@ -48,26 +49,14 @@ list:
 	$(info |) \
 	$(info `-----------------------------------------------------------------) :
 
+
+
 # /////////////////////////////////////////////////////////////////////////// //
 # //  EXT MODULES  ////////////////////////////////////////////////////////// //
 # /////////////////////////////////////////////////////////////////////////// //
 
-DOWNLOADS  += $(EXT_MODULES)
+DOWNLOADS  = $(EXT_MODULES)
 
-ccStickers: ##@ext download ccStickers sources
-ccStickers_URL = $(CCSTICKERS_URL)
-$(call _ext_bootstrap,ccStickers)
-$(call _ext_configure,ccStickers)
-
-EXT_MDSPLUS_URL    ?= https://github.com/mdsplus/mdsplus.git
-EXT_MDSPLUS_BRANCH ?= alpha
-ext-mdsplus: AM_MAKEFLAGS += -j1
-mdsplus: ##@ext mdsplus
-mdsplus_URL    = $(EXT_MDSPLUS_URL)
-mdsplus_BRANCH = $(EXT_MDSPLUS_BRANCH)
-mdsplus_CONFIGURE_ARGS = $(EXT_MDSPLUS_CONFIGURE_ARGS)
-$(call _ext_bootstrap,mdsplus)
-$(call _ext_configure,mdsplus)
 
 
 

@@ -130,11 +130,34 @@ if [ -d conf/kconfig ]; then
  popd
 fi
 
+<<<<<<< HEAD
 ## AUTOTOOLS ##
-aclocal -I ./conf/m4 -W ${AUTOCONF_WARNINGS} --install 
+aclocal -I ./conf/m4 -W ${AUTOCONF_WARNINGS}
+=======
+aclocal -I ./conf/m4 --install 
+
+>>>>>>> 057d2a3e6855448dd9b4f7f55745562f8e963f95
 autoheader
 # libtoolize -c
 automake --add-missing --copy -W ${AUTOCONF_WARNINGS}
 autoconf
 
+<<<<<<< HEAD
 
+
+=======
+echo "#"
+echo "# All done... now try to configure using \"./configure --enable-kconfig\""
+echo "#"
+
+
+# To remove a submodule you need to:
+# 
+# Delete the relevant section from the .gitmodules file.
+# Stage the .gitmodules changes git add .gitmodules
+# Delete the relevant section from .git/config.
+# Run git rm --cached path_to_submodule (no trailing slash).
+# Run rm -rf .git/modules/path_to_submodule (no trailing slash).
+# Commit git commit -m "Removed submodule "
+# Delete the now untracked submodule files rm -rf path_to_submodule
+>>>>>>> 057d2a3e6855448dd9b4f7f55745562f8e963f95

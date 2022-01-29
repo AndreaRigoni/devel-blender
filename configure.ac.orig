@@ -32,6 +32,11 @@ AC_CANONICAL_TARGET
 
 dnl AUTOMAKE ///////////////////////////////////////////////////////////////////
 AM_INIT_AUTOMAKE([foreign subdir-objects])
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 057d2a3e6855448dd9b4f7f55745562f8e963f95
 
 
 dnl update submodules at first ... (must be cleaned out)
@@ -44,7 +49,7 @@ dnl AX_KCONFIG /////////////////////////////////////////////////////////////////
 dnl see: m4/ax_enable_kconfig.m4
 AS_VAR_SET([srcdir],[${srcdir}])
 AS_VAR_SET([builddir],[$(pwd)])
-# AS_VAR_SET([DOCKER_IMAGE],[consorziorfx/devel-blender:0.1])
+AS_VAR_SET([DOCKER_IMAGE],[consorziorfx/devel-blender:0.1])
 
 AX_KCONFIG([conf/kconfig])
 
@@ -80,7 +85,13 @@ AC_CHECK_PROGS([TAR],[gtar tar])
 AC_CHECK_PROGS([UNIQ],[uniq])
 AC_CHECK_PROGS([WC],[wc])
 
+<<<<<<< HEAD
+AC_CHECK_PROGS([FIGLET],[figlet],[:])
+
+AC_PROG_LEX
+=======
 AC_PROG_LEX([noyywrap])
+>>>>>>> 057d2a3e6855448dd9b4f7f55745562f8e963f95
 AC_PROG_YACC
 
 
@@ -88,8 +99,13 @@ AC_PROG_YACC
 AC_CHECK_PROGS([PERL],[perl])
 
 ## LIBTOOL
+<<<<<<< HEAD
 ## LT_INIT()
 
+=======
+LT_INIT()
+ 
+>>>>>>> 057d2a3e6855448dd9b4f7f55745562f8e963f95
 ## /////////////////////////////////////////////////////////////////////////////
 ## //  KSCRIPTS  ///////////////////////////////////////////////////////////////
 ## /////////////////////////////////////////////////////////////////////////////
@@ -100,17 +116,20 @@ m4_sinclude(conf/kscripts/build_common.ac)
 ## TOOLCHAIN ##
 # m4_sinclude(conf/kscripts/toolchain.ac)
 
+## PYTHON ##
+m4_sinclude(conf/kscripts/python.ac)
+
 ## CODAC ##
 # m4_sinclude(conf/kscripts/iter_codac.ac)
 
 ## QT ##
-# m4_sinclude(conf/kscripts/qtdesktop.ac)
+m4_sinclude(conf/kscripts/qtdesktop.ac)
 
 ## NODEJS ##
-# m4_sinclude(conf/kscripts/nodejs.ac)
+m4_sinclude(conf/kscripts/nodejs.ac)
 
 ## DOXYGEN ##
-# m4_sinclude(conf/autoconf-doxygen/doxygen.ac)
+m4_sinclude(conf/autoconf-doxygen/doxygen.ac)
 
 ## EXT_LIBJIT ##
 # m4_sinclude(conf/kscripts/ext_libjit.ac)
@@ -119,30 +138,98 @@ m4_sinclude(conf/kscripts/build_common.ac)
 # m4_sinclude(conf/kscripts/ext_llvm.ac)
 
 ## EXT_CCSTICKERS ##
-# m4_sinclude(conf/kscripts/ext_ccStickers.ac)
+m4_sinclude(conf/kscripts/ext_ccStickers.ac)
 
 ## EXT_NODEJS_NODE ##
 # m4_sinclude(conf/kscripts/ext_nodejs_node.ac)
 
 ## EXT_MDSPLUS ##
-# m4_sinclude(conf/kscripts/ext_mdsplus.ac)
+m4_sinclude(conf/kscripts/ext_mdsplus.ac)
 
 
+## EXT ##
+AX_KCONFIG_MODULES([EXT],
+		  [libjit],[libjit external sources],
+		  [llvm],[llvm external sources],
+		  [ccStickers],[ccStickers external sources],
+		  [nodejs-node],[nodejs node external sources],
+		  [mdsplus],[mdsplus external sources]
+		  )
+AC_SUBST([EXT_MODULES])
+
+## YOCTO ##
+# m4_sinclude(conf/kscripts/yocto.ac)
+
+## BLENDER BUILD ##
+AX_KCONFIG_VAR_WITH([BLENDER_BUILD_URL],["set blender url"])
+AC_SUBST([BLENDER_BUILD_URL])
+AX_KCONFIG_VAR_WITH([BLENDER_BUILD_BRANCH],["set blender branch"])
+AC_SUBST([BLENDER_BUILD_BRANCH])
 
 
 ## // GIT IGNORE // ##
 AX_GITIGNORE_ADD_PATH([${builddir}])
+<<<<<<< HEAD
 AX_GITIGNORE_ADD_PATH([${builddir}/src/build*])
+=======
+AX_GITIGNORE_ADD_PATH([${builddir}/conf/python])
+AX_GITIGNORE_ADD_PATH([${builddir}/conf/ide])
+AX_GITIGNORE_ADD_PATH([*/.deps])
+>>>>>>> 057d2a3e6855448dd9b4f7f55745562f8e963f95
 AX_GITIGNORE_SUBST
 
 
+AS_ECHO()
+AS_BOX([// DOXY CONFIG VARIABLES //////], [\/])
+AS_ECHO()
+AS_ECHO()
+AS_ECHO(["ENABLE_DOXYGEN ------------------> ${ENABLE_DOXYGEN}"])
+AS_ECHO(["DOXYGEN_MODULES_AVAILABLE -------> ${DOXYGEN_MODULES_AVAILABLE}"])
+AS_ECHO(["DOXYGEN_MODULES_ENABLED ---------> ${DOXYGEN_MODULES_ENABLED}"])
+AS_ECHO(["DOXYGEN_MODULES_DISABLED --------> ${DOXYGEN_MODULES_DISABLED}"])
+AS_ECHO(["DOXYGEN_MODULES -----------------> ${DOXYGEN_MODULES}"])
+AS_ECHO()
 
 
-AC_CONFIG_FILES( 
+##
+## RPM
+##
+#     dnl For my rpm.m4 macros
+RPM_RELEASE=1
+AC_SUBST(RPM_RELEASE)
+
+AX_RPM_INIT
+AM_CONDITIONAL(MAKE_RPMS, test x$make_rpms = xtrue)
+
+
+
+AC_CONFIG_FILES(
                  Makefile
 				 .gitignore
+<<<<<<< HEAD
 				 docker/Makefile
 				 ext/Makefile
-				src/Makefile
+
+dnl           // EXAMPLE SOURCES  /////////////
+                 src/Makefile
+                 src/qt_example/Makefile
+                 src/parse_examples/Makefile
+                 src/nodejs/Makefile
+                 src/mds_example/Makefile
+dnl           /////////////////////////////////
+=======
+				 src/Makefile
+				 src/qt_example/Makefile
+				 src/sh_template/Makefile
+				 src/parse_examples/Makefile
+				 src/nodejs/Makefile				 
+				 src/project_variables/Makefile
+				 src/mds_example/Makefile
+				 src/jp_notebook/Makefile
+				 docs/Makefile
+				 docs/example_jpnb/Makefile
+				 ext/Makefile
+				 autoconf-bootstrap.spec
+>>>>>>> 057d2a3e6855448dd9b4f7f55745562f8e963f95
                )
 AC_OUTPUT
