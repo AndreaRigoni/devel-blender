@@ -10,10 +10,11 @@ main_SOURCES = main.cpp
 ## //  BLENDER  ///////////////////////////////////////////////////////////////////
 ## ////////////////////////////////////////////////////////////////////////////////
 
+DOWNLOADS = blender
+
 blender: ##@ext download blender
-DOWNLOADS += blender
-blender_URL    ?= $(BLENDER_BUILD_URL)
-blender_BRANCH ?= $(BLENDER_BUILD_BRANCH)
+blender_URL    = $(BLENDER_BUILD_URL)
+blender_BRANCH = $(BLENDER_BUILD_BRANCH)
 
 build-deps: build_deps_CMD = blender/build_files/build_environment/install_deps.sh
 build-deps: build_deps_ARG = --no-confirm --skip-llvm

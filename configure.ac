@@ -128,14 +128,16 @@ m4_sinclude(conf/kscripts/build_common.ac)
 # m4_sinclude(conf/kscripts/ext_mdsplus.ac)
 
 
-
+## BLENDER BUILD ##
+AX_KCONFIG_VAR_WITH([BLENDER_BUILD_URL],["set blender url"])
+AC_SUBST([BLENDER_BUILD_URL])
+AX_KCONFIG_VAR_WITH([BLENDER_BUILD_BRANCH],["set blender branch"])
+AC_SUBST([BLENDER_BUILD_BRANCH])
 
 ## // GIT IGNORE // ##
 AX_GITIGNORE_ADD_PATH([${builddir}])
 AX_GITIGNORE_ADD_PATH([${builddir}/src/build*])
 AX_GITIGNORE_SUBST
-
-
 
 
 AC_CONFIG_FILES( 
